@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 //componentes
 import { ListEmpleadosComponent } from './components/list-empleados/list-empleados.component';
@@ -19,11 +21,13 @@ import { environment } from 'src/environments/environment';
     CreateEmpleadoComponent,
     NavbarComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

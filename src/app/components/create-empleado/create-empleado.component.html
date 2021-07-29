@@ -4,20 +4,27 @@
       <div class="card text-center">
         <div class="card-body">
           <h3>
-            Agregar Empleado
+            {{ titulo }}
+            <div *ngIf="loading" class="spinner-border float-right" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </h3>
-          <span *ngIf="submitted && createEmpleado.invalid" class="badge badge-danger">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
-          <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEmpleado()">
+          <span *ngIf="submitted && createEmpleado.invalid" class="badge bg-pill bg-danger">TODOS LOS CAMPOS SON
+            OBLIGATORIOS</span>
+          <form class="mt-4" [formGroup]="createEmpleado" (ngSubmit)="agregarEditarEmpleado()">
             <div class="row">
               <div class="col">
                 <input type="text" class="form-control form-control-lg" formControlName="nombre" placeholder="Nombre">
               </div>
               <div class="col">
-                <input type="text" class="form-control form-control-lg" formControlName="apellido" placeholder="Apellido">
+                <input type="text" class="form-control form-control-lg" formControlName="apellido"
+                  placeholder="Apellido">
               </div>
             </div>
-            <input type="number" class="form-control form-control-lg mt-4" formControlName="documento" placeholder="Documento">
-            <input type="nomber" class="form-control form-control-lg mt-4" formControlName="salario" placeholder="Salario">
+            <input type="number" class="form-control form-control-lg mt-4" formControlName="documento"
+              placeholder="Documento">
+            <input type="nomber" class="form-control form-control-lg mt-4" formControlName="salario"
+              placeholder="Salario">
             <div class="mt-3">
               <button class="btn btn-secondary btn-lg me-3" routerLink="/list-empleados">Volver</button>
               <button class="btn btn-dark btn-lg">Agregar</button>
